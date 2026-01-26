@@ -1,0 +1,19 @@
+/* colors
+"primary": "#0d9488", // Teal 600
+"primary-hover": "#0f766e", // Teal 700
+"navy-bg": "#020617", // Dark Navy Blue 950
+"navy-card": "#0f172a", // Navy Blue 900
+ "navy-sidebar": "#070c1b", // Slightly darker navy for sidebar
+"border-navy": "#1e293b", // Navy 800
+ "accent-teal": "#2dd4bf", // Bright Teal 400
+"teal-dim": "#134e4a", // Deep Teal
+
+*/
+
+*{
+  margin: 0;
+  padding: 0;
+  background-color: #020617;
+  color: white;
+}
+
