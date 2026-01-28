@@ -1,12 +1,22 @@
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <p>Home</p>
-      <p>Search</p>
-      <p>Cart</p>
-    </div>
-  )
-}
+      <Link>
+        <p>Home</p>
+      </Link>
 
-export default Navbar
+      <label>
+        <input className="search" name="search" placeholder="Search books...">
+        </input> 
+      </label>
+
+      <Link>
+        <p className="cart-image-navbar">🛒</p>
+      </Link>
+    </div>
+  );
+};
+
+export default Navbar;

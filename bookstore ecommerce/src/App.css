@@ -23,7 +23,22 @@ body {
 
 .navbar-container{
   display: flex;
+  color: white;
+  justify-content: space-evenly;
+  padding: 20px 0;
+  border-bottom: 3px solid  #0f172a;
+  position: sticky;
+  top: 0;
+  background-color: #020617 ;
+}
 
+.search{
+  background-color: #0f172a ;
+  color:#2dd4bf; 
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+  width: 250px;
 }
 
 .book-card{
@@ -74,6 +89,8 @@ body {
 
 .Single-book-cover{
   width: 20vw;
+  height: 70vh;
+  object-fit: cover;
 }
 
 .single-book-title{
@@ -81,19 +98,110 @@ body {
   margin-bottom: 20px;
 }
 
-.single-book-title p {
+.single-book-title h5{
   color: #2dd4bf;
-}
-.single-book-priceinfo{
-  background-color: #0f172a;
-  /* border: 10px solid rgb(224, 154, 224); */
-  border-radius: 10px ;
+  margin-top: 5px;
 }
 
+.single-book-title p {
+  margin-top: 12px;
+}
+
+.single-book-title h4{
+  background-color: #134e4a;
+  color: #2dd4bf;
+  width: 6vw;
+  border-radius: 5px;
+  text-align: center;
+  padding: 3px 0;
+  margin-top: 10px;
+}
+
+.rating-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-book-priceinfo{
+  background-color: #0f172a;
+  border-radius: 10px ;
+  padding: 10px 20px 18px 20px;
+} 
+
+.price-discount{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  margin-top: 7px;
+}
+
+.discount{
+  background-color: #134e4a;
+  color: #2dd4bf;
+  width: 5vw;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 1px;
+}
+
+
+
+
+.buy-button {
+  cursor: pointer;
+  background-color: #198173;
+  color: white;
+  border-radius: 5px;
+  width: 10vw;
+  padding: 10px 0px;
+  border: none;
+}
+
+.addCart-button {
+  border: 1px solid  #198173;
+  background-color: #020617;
+  color: #2dd4bf;
+  border-radius: 5px;
+  padding: 10px 6px;
+  width: 10vw;
+  cursor: pointer;
+}
+
+
+
+
+.single-book-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
 
 
 
 .single-book-description{
-  border: 10px solid rgb(219, 226, 219);
-  background-color: blue;
+  margin-top: 40px;
 }
+
+ hr{
+  margin-top: 3px;
+  margin-bottom: 15px;
+ }
+
+ .publication-date{
+  margin-top: 70px;
+ }
+
+.not-found-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.not-found-container h1 {
+  color: #2dd4bf;
+}
+
+
+

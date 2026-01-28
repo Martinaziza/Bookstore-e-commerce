@@ -24,26 +24,37 @@ const BookDetailsPage = () => {
       <div className="single-book-content">
       <div className="single-book-title">
         <h2>{book.book_name}</h2>
-        <p>by {book.author}</p>
+        <h5>by {book.author}</h5>
         {/* <p>{book.categories.join(", ")}</p>  */}
+        <div className="rating-div"> 
+
         <p>{book.rating} ⭐</p>
         <h4>{book.is_besteller ? "true" : "Bestseller"}</h4>
+        </div>
       </div>
 
       <div className="single-book-priceinfo">
+      <div className="price-discount">
         <h3>${(book?.price || 0).toFixed(2)}</h3>
-        {book.discounts !== 0 ? <p>{book.discounts * 100}% OFF</p> : null}
+        {book.discounts !== 0 ? <p className="discount">{book.discounts * 100}% Off</p> : null}
         <p>{book.in_stock ? "In Stock (emoji)" : "Not Available"}</p>
-        <button>Buy</button>
-        <button>Add to Cart</button>
+      </div>
+
+         <div className="single-book-buttons"> 
+
+        <button className="buy-button">Buy Now</button>
+        <button className="addCart-button">Add to Cart 🛒</button>
+         </div>
       </div> 
 
       <div className="single-book-description">
-        <p>{book.description}</p>
-        <p>{book.pub_date}</p>
+        <p>Description</p>
+        <hr/>
+        <p className="description">{book.description}</p>
+        <p className="publication-date">Publication date: <br/> {book.pub_date}</p>
       </div>
       </div>
-    </div>
+    </div> 
   );
 };
 
