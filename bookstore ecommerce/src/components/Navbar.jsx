@@ -1,6 +1,23 @@
 import { Link } from "react-router-dom";
+import { BookstoreContext } from "../context/BookstoreContext";
+import { useContext, useState, useEffect } from "react";
+
 
 const Navbar = () => {
+
+  const {query, setQuery} = useContext(BookstoreContext)
+  
+ 
+//  const [backup, setBackup] = useState(books)
+
+  // useEffect(() => {
+  //   setBooks(
+  //     backup.filter((current) =>
+  //       current.name.toLowerCase().includes(query.toLowerCase()),
+  //     ),
+  //   )
+  // }, [query])
+
   return (
     <div className="navbar-container">
       <Link to="/">
@@ -8,8 +25,8 @@ const Navbar = () => {
       </Link>
 
       <label>
-        <input className="search" name="search" placeholder="Search books...">
-        </input> 
+        <input className="search" name="search" placeholder="Search books..." value={query} onChange={(e) => setQuery(e.target.value)}/>
+     
       </label>
 
       <Link to="/cart">
@@ -17,8 +34,8 @@ const Navbar = () => {
       </Link>
 
       <div className="Admin-button-div">
-        <Link to="/addBook">
-          <button className="add-book-button">Admin</button>
+        <Link to="/admin">
+          <button className="admin-button">Admin</button>
         </Link>
       </div>
     </div>
@@ -26,3 +43,18 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+// searchbar
+//beers, and setBeers were propped 
+
+//  const [query, setQuery] = useState("")
+//   const [backup, setBackup] = useState(beers)
+
+//   useEffect(() => {
+//     // getBeerByQuery(query, setBeers)
+//     setBeers(
+//       backup.filter((current) =>
+//         current.name.toLowerCase().includes(query.toLowerCase()),
+//       ),
+//     )
+//   }, [query])

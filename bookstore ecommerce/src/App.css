@@ -170,6 +170,11 @@ body {
   padding: 10px 20px 18px 20px;
 } 
 
+.in-stock-img{
+  width: 20px;
+  height: 20px;
+}
+
 .price-discount{
   display: flex;
   justify-content: space-between;
@@ -249,8 +254,35 @@ label {
   color: white;
   display: block;
   margin-bottom: 10px;
-  
+
 }
+
+.admin-buttons-div{
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+  
+.submit-button , .delete-button {
+  cursor: pointer;
+  background-color: #198173;
+  color: white;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: none;
+}
+/* input, textarea, select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  background-color: #0f172a;
+  color: white;
+} */
 
 
 

@@ -1,11 +1,11 @@
-import { useState } from "react";
-
-const Bookform = ({formData, setFormData, handleSubmit}) => {
 
 
+const Bookform = ({formData, setFormData, handleSubmit, handleUpdateBook, handleDeleteBook}) => {
+
+const isEditing = !!formData.id || !!handleUpdateBook;
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={isEditing ? handleUpdateBook : handleSubmit} className="book-form">
         <label>
           Book image:
           <input
@@ -38,13 +38,12 @@ const Bookform = ({formData, setFormData, handleSubmit}) => {
           type="text" placeholder="Book author name" />
         </label>
 
-        {/* look for the synteax for array input */}
             <label> 
          Category:
           <input 
-          value={formData.categories}
+          value={Array.isArray(formData.categories) ? formData.categories.join(", ") : formData.categories}
           onChange={(e) => {
-              setFormData({...formData, categories: e.target.value});
+              setFormData({...formData, categories: e.target.value.split(", ").map(cat => cat.trim())});
             }}
           type="text" placeholder="Add book category" />
         </label>
@@ -66,7 +65,9 @@ const Bookform = ({formData, setFormData, handleSubmit}) => {
           onChange={(e) => {
               setFormData({...formData, discounts: e.target.value});
             }}
-          type="number"/>
+          type="number"
+            max={1}
+          />
         </label>
 
         <label>
@@ -118,9 +119,12 @@ const Bookform = ({formData, setFormData, handleSubmit}) => {
             }}
           type="text" placeholder="yyyy/mm/dd" />
         </label>
- <button type="submit">Launch Book</button>
-            
 
+        <div className="admin-buttons-div">
+ <button type="submit" className="submit-button">{isEditing ? "Update Book" : "Launch Book"}</button>
+ <button onClick={() => handleDeleteBook(id)} className="delete-button">Delete Book</button> 
+          
+</div>
       </form>
     </div>
   );

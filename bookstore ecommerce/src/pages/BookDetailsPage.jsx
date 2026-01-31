@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { BookstoreContext } from "../context/BookstoreContext";
-import { useParams } from "react-router-dom";
-
+import { Link, useParams } from "react-router-dom";
+import inStockImg from "../assets/in-stock.png";
 const BookDetailsPage = () => {
-  const { fetchSingleBook } = useContext(BookstoreContext);
+  const { fetchSingleBook, users,} =
+    useContext(BookstoreContext);
   const { id } = useParams();
   const [book, setBook] = useState({});
 
@@ -40,7 +41,13 @@ const BookDetailsPage = () => {
             {book.discounts !== 0 ? (
               <p className="discount">{book.discounts * 100}% Off</p>
             ) : null}
-            <p>{book.in_stock ? "In Stock (emoji)" : "Not Available"}</p>
+            <p>
+              {book.in_stock ? (
+                <img src={inStockImg} alt="In Stock" className="in-stock-img" />
+              ) : (
+                "Not Available"
+              )}
+            </p>
           </div>
 
           <div className="single-book-buttons">
@@ -57,12 +64,23 @@ const BookDetailsPage = () => {
             Publication date: <br /> {book.pub_date}
           </p>
         </div>
+        {users.length > 0 && users[0].role === "admin" ? (
+          <div className="edit-button">
+            <Link to={`/editbook/${id}`}>
+              <button>Edit</button>
+            </Link>
+          </div>
+        ) : null}
       </div>
     </div>
   );
 };
 
 export default BookDetailsPage;
+
+//How to disable the button:
+// disabled={users.role !== "admin"}
+//For the admin and user.
 
 // id: "BK-001",
 // book_name: "Harry Potter and the Sorcerer's Stone",
