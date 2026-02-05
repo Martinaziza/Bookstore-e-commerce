@@ -2,9 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import { BookstoreContext } from "../context/BookstoreContext";
 import { Link, useParams } from "react-router-dom";
 import inStockImg from "../assets/in-stock.png";
+import { CartContext } from "../context/CartContext";
+
+
 const BookDetailsPage = () => {
   const { fetchSingleBook, users,} =
     useContext(BookstoreContext);
+
+    const { fetchCart, addItem } = useContext(CartContext)
+
   const { id } = useParams();
   const [book, setBook] = useState({});
 
@@ -51,8 +57,10 @@ const BookDetailsPage = () => {
           </div>
 
           <div className="single-book-buttons">
-            <button className="buy-button">Buy Now</button>
-            <button className="addCart-button">Add to Cart 🛒</button>
+            <Link to="/cart/1">
+            <button className="buy-button" onClick={addItem}>Buy Now</button>
+            </Link>
+            <button className="addCart-button" >Add to Cart 🛒</button>
           </div>
         </div>
 

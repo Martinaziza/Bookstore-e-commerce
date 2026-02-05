@@ -1,5 +1,6 @@
 import axios from "axios";
-import { createContext, use, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+// import {CartContext} from "./CartContext"
 // import { useNavigate } from "react-router-dom";
 
 const BookstoreContext = createContext()
@@ -11,6 +12,10 @@ const Bookstore = ({children}) => {
     const [users, setUsers] = useState([])
     const [query, setQuery] = useState("")
 
+
+
+
+// 1. FETCH A SINGLE BOOK
      const fetchSingleBook = async (id, setBook, setEditBook) => {
         try {
             const response = await axios.get(
@@ -23,6 +28,8 @@ const Bookstore = ({children}) => {
         }
      }
 
+
+// 2. FETCH ALL BOOKS
      useEffect (()=>{
         const fetchBookStore = async () => {
         try {
@@ -37,7 +44,7 @@ const Bookstore = ({children}) => {
         fetchBookStore()
      }, [])
      
-    
+// 3. FETCH ALL USERS    
         const fetchUsers = async () => {
             try{
                 const response = await axios.get("http://localhost:5005/users")

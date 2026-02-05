@@ -8,6 +8,7 @@ import Addbook from './pages/Addbook'
 import EditBook from './pages/EditBook'
 import Admin from './pages/Admin'
 import Footer from './components/Footer'
+import CartPage from "./pages/CartPage"
 function App() {
   
 
@@ -18,7 +19,7 @@ function App() {
         <Route path="/" element={<Homepage/>}/>
         <Route path="*" element={<NotFoundPage/>}/>
         <Route path="/books/:id" element={<BookDetailsPage/>}/>
-        <Route path="/cart" element={<h1 style={{color: 'white'}}>Cart Page - Coming Soon!</h1>}/>
+        <Route path="/cart/1" element={ <CartPage/>}/>
        <Route path="/addBook" element={<Addbook/>} />
        <Route path="/editBook/:id" element={<EditBook/>}/>
        <Route path="/admin" element={<Admin/>}/>
