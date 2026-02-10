@@ -1,4 +1,4 @@
-import Homepage from "./homepage";
+import Homepage from "./Homepage";
 import { Link } from "react-router-dom";
 
 const Admin = () => {
