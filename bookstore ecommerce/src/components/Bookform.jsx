@@ -6,6 +6,8 @@ const isEditing = !!formData.id || !!handleUpdateBook;
   return (
     <div>
       <form onSubmit={isEditing ? handleUpdateBook : handleSubmit} className="book-form">
+      <div className="book-form-div">
+      <div>
         <label>
           Book image:
           <input
@@ -48,6 +50,7 @@ const isEditing = !!formData.id || !!handleUpdateBook;
           type="text" placeholder="Add book category" />
         </label>
 
+
         <label>
          Price:
           <input 
@@ -69,10 +72,13 @@ const isEditing = !!formData.id || !!handleUpdateBook;
             max={1}
           />
         </label>
+</div>
+<div>
 
         <label>
          Stock:
           <input 
+          className="form-checkbox"
           checked={formData.in_stock}
           onChange={(e) => {
               setFormData({...formData, in_stock: e.target.checked});
@@ -83,6 +89,7 @@ const isEditing = !!formData.id || !!handleUpdateBook;
          <label>
          Bestseller:
           <input 
+          className="form-checkbox"
           checked={formData.is_bestseller}
           onChange={(e) => {
               setFormData({...formData, is_bestseller: e.target.checked});
@@ -119,12 +126,14 @@ const isEditing = !!formData.id || !!handleUpdateBook;
             }}
           type="text" placeholder="yyyy/mm/dd" />
         </label>
-
+        </div>
+      </div>
         <div className="admin-buttons-div">
  <button type="submit" className="submit-button">{isEditing ? "Update Book" : "Launch Book"}</button>
- <button onClick={() => handleDeleteBook(id)} className="delete-button">Delete Book</button> 
+ <button type="submit" onClick={handleDeleteBook} className="delete-button">Delete Book</button> 
           
 </div>
+
       </form>
     </div>
   );

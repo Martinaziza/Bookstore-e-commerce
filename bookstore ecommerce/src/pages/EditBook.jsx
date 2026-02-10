@@ -26,8 +26,14 @@ const EditBook = () => {
  const nav = useNavigate(); 
 
  useEffect(() => {
-    fetchSingleBook(id, setBooks, setEditBook);
- }, [id])
+  const loadBook = async () => {
+    const book = await fetchSingleBook(id);
+    setEditBook(book);
+  }
+
+  loadBook();
+    
+ }, [id]);
  
     const handleUpdateBook = async (e) =>{
     e.preventDefault()
@@ -47,9 +53,11 @@ const EditBook = () => {
      
    const handleDeleteBook = async () => {
       try {
-        const response = await axios.delete(`http://localhost:5005/books/${id}`)
+        await axios.delete(`http://localhost:5005/books/${id}`)
+        setBooks((prev)=> prev.filter((book)=> book.id !== id))
+        nav("/")
       } catch (error) {
-        conseole.log(error)
+        console.log(error)
       }
     }
 

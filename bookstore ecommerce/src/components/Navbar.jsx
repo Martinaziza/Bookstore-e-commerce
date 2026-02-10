@@ -12,13 +12,13 @@ const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <div className="navbar-container">
       {/* <h2>Beyond Pages</h2> */}
+      <Link to="/">
       <img
         src={logoImage}
         alt="Beyond Pages Logo"
         className="logo-image-navbar"
       />
-      <Link to="/">
-        <p>Home</p>
+    
       </Link>
 
       <label>

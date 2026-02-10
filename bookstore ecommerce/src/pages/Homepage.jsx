@@ -67,6 +67,8 @@ const Homepage = () => {
     book.book_name.toLowerCase().includes(query.toLowerCase())
   );
 
+
+
   // 4. STEP 2: Calculate pagination based on the FILTERED list, not the original list
   const totalPages = Math.ceil(filteredBooks.length / itemsPerPage);
   const lastItemIndex = currentPage * itemsPerPage;

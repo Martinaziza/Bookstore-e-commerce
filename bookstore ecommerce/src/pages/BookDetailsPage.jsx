@@ -4,6 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import inStockImg from "../assets/in-stock.png";
 import { CartContext } from "../context/CartContext";
 
+// useEffect(() => {
+//   const loadBook = async () => {
+//     const book = await fetchSingleBook(id);
+//     setEditBook(book);
+//   }
 
 const BookDetailsPage = () => {
   const { fetchSingleBook, users, books, setEditBook} =
@@ -15,8 +20,12 @@ const BookDetailsPage = () => {
   const [book, setBook] = useState({});
 
   useEffect(() => {
-    fetchSingleBook(id, setBook, setEditBook);
-  }, [id, fetchSingleBook]);
+    const details = async () => {
+      const book = await fetchSingleBook(id);
+      setBook(book);
+    }
+    details()
+  }, [id]);
 
   return (
     <div className="single-book-container">
@@ -75,7 +84,7 @@ const BookDetailsPage = () => {
         {users.length > 0 && users[0].role === "admin" ? (
           <div className="edit-button">
             <Link to={`/editbook/${id}`}>
-              <button>Edit</button>
+              <button className="edit-details">Edit</button>
             </Link>
           </div>
         ) : null}

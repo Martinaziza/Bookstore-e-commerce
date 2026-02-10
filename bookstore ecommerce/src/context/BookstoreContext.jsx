@@ -17,13 +17,11 @@ const Bookstore = ({children}) => {
 
 
 // 1. FETCH A SINGLE BOOK
-     const fetchSingleBook = async (id, setBook, setEditBook) => {
+     const fetchSingleBook = async (id) => {
         try {
             const response = await axios.get(
-                `http://localhost:5005/books/${id}`
-            )
-            setBook(response.data)
-            setEditBook(response.data)
+                `http://localhost:5005/books/${id}`)
+                 return response.data;
         } catch (error) {
             console.log(error)
         }
