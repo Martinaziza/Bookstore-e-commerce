@@ -3,6 +3,8 @@ import { BookstoreContext } from "../context/BookstoreContext";
 import { Link, useParams } from "react-router-dom";
 import inStockImg from "../assets/in-stock.png";
 import { CartContext } from "../context/CartContext";
+import imagePlaceholder from "../assets/Image-placeholder.jpg"
+
 
 // useEffect(() => {
 //   const loadBook = async () => {
@@ -30,11 +32,12 @@ const BookDetailsPage = () => {
   return (
     <div className="single-book-container">
       <div className="single-book-image">
-        <img
-          src={book.image}
-          alt={book.book_name}
-          className="Single-book-cover"
-        />
+            {
+        book.image ?
+        <img src={book.image} alt={book.book_name} className="Single-book-cover" /> :
+        <img src={imagePlaceholder} className="Single-book-cover" />
+      }
+        
       </div>
 
       <div className="single-book-content">

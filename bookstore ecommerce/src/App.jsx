@@ -9,6 +9,7 @@ import EditBook from './pages/EditBook'
 import Admin from './pages/Admin'
 import Footer from './components/Footer'
 import CartPage from "./pages/CartPage"
+import PaymentPage from './pages/PaymentPage' 
 function App() {
   
 
@@ -23,6 +24,7 @@ function App() {
        <Route path="/addBook" element={<Addbook/>} />
        <Route path="/editBook/:id" element={<EditBook/>}/>
        <Route path="/admin" element={<Admin/>}/>
+       <Route path="/payment" element={<PaymentPage/>}/>
       </Routes>
       <Footer/>
     </>

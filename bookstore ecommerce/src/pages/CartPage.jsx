@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const { cart, removeFromCart } = useContext(CartContext);
@@ -30,7 +31,11 @@ const CartPage = () => {
       </div>
       <div className="cart-total">
         <h2>Total: ${total.toFixed(2)}</h2>
+        <Link to="/payment">
         <button className="checkout-btn">Proceed to checkout</button>
+        </Link>
+
+        
       </div>
     </div>
   );
