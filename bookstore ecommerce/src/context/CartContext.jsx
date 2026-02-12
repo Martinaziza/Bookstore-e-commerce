@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import api from "../../api";
 // import { BookstoreContext } from "./BookstoreContext"
 
@@ -35,14 +35,31 @@ const Cart = ({ children }) => {
      });
   };
 
+
+
+
+
 //REMOVING LOGIC FROM THE CART
 
   const removeFromCart = (bookId) => {
     setCart((prevCart)=> prevCart.filter((item)=> item.id !== bookId))
   }
+
+  const decreaseQty = (oneBook) => {
+     setCart((prev) => {
+        const exists = prev.find(item => item.id === oneBook.id);
+        
+        if (exists){
+           return prev.map(item => item.id === oneBook.id ? {...item, quantity: Math.max(1, item.quantity - 1)} : item);
+        }
+        return [...prev, {...oneBook, quantity: 1}];
+     });
+  };
+
+
 // DON'T EVER FORGET IN YOUR ENTIRE LIFE TO ADD STATE AND FUCTIONS IN THE PROVIDER/VALUE
   return (
-    <CartContext.Provider value={{addToCart, cart, setCart, removeFromCart}}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{addToCart, cart, setCart, removeFromCart, decreaseQty}}>{children}</CartContext.Provider>
   );
 };
 

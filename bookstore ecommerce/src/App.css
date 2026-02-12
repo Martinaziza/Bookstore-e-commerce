@@ -284,6 +284,21 @@ body {
   border: none;
 }
 
+.quantity-btn{
+ cursor: pointer;
+  background-color: #198173;
+  color: white;
+  border-radius: 5px;
+  width: 2.5vw;
+  height: 3vh;
+  border: none;
+  margin-left: 7px;
+}
+
+.item-quantity{
+  margin: 0 10px;
+}
+
 .addCart-button, .cart-remove {
   border: 1px solid  #198173;
   background-color: #020617;
@@ -489,4 +504,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 margin-top: 25px;
+}
+
+.cart-empty{
+  color: white;
+  text-align: center;
+  margin-top: 20px;
 }
