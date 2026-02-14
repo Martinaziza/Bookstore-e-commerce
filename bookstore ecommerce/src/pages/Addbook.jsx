@@ -27,7 +27,7 @@ const{ books, setBooks} = useContext(BookstoreContext)
 
 
 try {
-    const response =  await api.post("/books", {...formData, price: Number(formData.price), discounts: Number (formData.discounts)})
+    const response =  await api.post("/books", {...formData, price: Number(formData.price), discounts: Number (Math.max(1, formData.discounts))})
     console.log(response.data) 
     setBooks([...books, response.data])
     nav("/")
